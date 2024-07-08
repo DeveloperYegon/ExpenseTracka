@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body class="bg-[#fff]">
+
+
+<nav class="bg-[rgba(255,255,255,.4)] m-2 flex flex-row scroll justify-around h-20 items-center">
+    <div class="text-[#003B95] hand">
+        <a href="http://127.0.0.1:5500/index.html">
+        ExpenseTracka
+    </a>
+    </div>
+ <div class="hidden md:flex"> 
+
+    
+    <a class="p-3 hover:text-[#003B95] " href="http://127.0.0.1:5500/index.html">Home</a>
+    <a class="p-3 hover:text-[#003B95]" href="http://127.0.0.1:5500/src/about.html">About-Us</a>
+    <a class="p-3 hover:text-[#003B95]" href="http://127.0.0.1:5500/src/contact.html">Contact-Us</a>
+    <a class="p-3 hover:text-[#003B95]" href="http://127.0.0.1:5500/src/myexpenses.html">My-Expenses</a>
+    
+   
+ </div>
+ <div>
+    <a class="p-3 bg-red-600 rounded-xl hover:text-[#003B95]" href="http://127.0.0.1:5500/src/login.html">LOGIN</a>
+ </div>
+ <div class="md:hidden">
+    <i class="fa-solid fa-bars"></i>
+ </div>
+</nav>
+<hr class="w-[50%] m-auto bg-black h-1">
+<main>
+   
+    
+    <section class="m-3 grid  p-3 md:grid-cols-2 border rounded-lg md:mx-[100px] md:my-[50px] h-full gap-10" >
+        <div class=" hidden md:flex bg-white flex-col border items-center rounded-lg ">
+            <p>We are excited to be part of your financial journey.</p>
+            <p class="text-center">
+                Together, we can achieve our financial goals and build a brighter future for ourselves and our loved ones.
+            </p>
+            
+        </div>
+        <div class="bg-[#003B95] p-5 rounded-[10px]" >
+            <h3 class="text-white p-2 text-center ">LOGIN</h3>
+            <hr class="w-[50%] m-auto  bg-white justify-center">
+            <form class="flex flex-col" action="" method="">
+                
+                <label class="m-1" for="mail">Email:</label>
+                <input class="m-2 p-3 rounded-sm" id="mail" type="email" autofocus placeholder="Enter Your Email">
+                <label class="m-1 font-lg" for="pass">Passsword:</label>
+                <input class="m-2 p-3 rounded-sm" id="pass" type="password" placeholder="Enter Your Password">
+    
+    
+                <input class="m-2 bg-black hand text-white p-2 rounded-[10px]" type="button" value="SUBMIT" >
+        
+            </form>
+            <p>Don't have an account. Signup</p>
+        
+        
+        </div>
+       </section>
+</main>
+  <footer>
+    <div class="bg-[#003B95] text-white text-center p-5">
+        <p> &copy; <span id="year">0</span> ExpenseTracker. All Rights Reserved.</p>
+    </div>
+  </footer>
+  <script src="index.js"></script>
+</body>
+</html>
