@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-  <link href="./src/output.css" rel="stylesheet">
+  <link href="./output.css" rel="stylesheet">
 </head>
 <body class="bg-[#fff]">
 
@@ -19,14 +19,14 @@
  <div class="hidden md:flex"> 
 
     <a class="p-3 hover:text-[#003B95] " href="http://127.0.0.1:5500/index.html">Home</a>
-    <a class="p-3 hover:text-[#003B95]" href="./src/about.html">About-Us</a>
-    <a class="p-3 hover:text-[#003B95]" href="./src/contact.html">Contact-Us</a>
-    <a class="p-3 hover:text-[#003B95]" href="./src/myexpenses.html">My-Expenses</a>
+    <a class="p-3 hover:text-[#003B95]" href="./about.html">About-Us</a>
+    <a class="p-3 hover:text-[#003B95]" href="./contact.html">Contact-Us</a>
+    <a id="expenser" class="p-3 hover:text-[#003B95]" href="">My-Expenses</a>
     
    
  </div>
  <div>
-    <a class="p-3 bg-red-600 rounded-xl hover:text-[#003B95]" href="./src/login.html">LOGIN</a>
+    <a class="p-3 bg-red-600 rounded-xl hover:text-[#003B95]" href="./login.html">LOGIN</a>
  </div>
  <div class="md:hidden">
     <i class="fa-solid fa-bars"></i>
@@ -67,43 +67,48 @@
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, ut mollitia? Commodi dignissimos dolore fugiat similique voluptatibus voluptatum, ab quisquam dicta nesciunt soluta accusantium. Exercitationem non sapiente adipisci corrupti quas!</p>
     </div> -->
    </section>
-   <p class="text-center pt-5">Subscription Plans</p>
+    <div class="h-20 "></div>
+
+   <p class="text-center p-5 m">Subscription Plans</p>
    <hr class="w-[80%] bg-black h-1 m-auto">
 
-   <div class="p-4 bg-[#003B95] grid gap-10 m-5 grid-cols-2">
+   <div class="p-4 bg-[#003B95] grid gap-10 m-5 md:grid-cols-2 rounded-xl">
    
-    <div class="bg-[#fff] p-5">
+    <!-- <div class="bg-[#fff] p-5">
       <p class="text-center">Free Trial</p>
       <hr class="w-[80%] bg-black h-1 m-auto">
       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi dolore aliquid, saepe sapiente sunt possimus explicabo commodi veritatis atque, aperiam, voluptates illum optio eius? Quo et quas tempora velit odit?</p>
-    </div>
+    </div> -->
     <div class="bg-[#fff] p-5">
-      <p class="text-center">Monthly Subscription</p>
+      <p class="text-center p-5">Monthly Subscription</p>
       <hr class="w-[80%] bg-black h-1 m-auto">
       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi dolore aliquid, saepe sapiente sunt possimus explicabo commodi veritatis atque, aperiam, voluptates illum optio eius? Quo et quas tempora velit odit?</p>
     </div>
     <div  class="bg-[#fff] p-5">
-      <p class="text-center">Yearly Subscription</p>
+      <p class="text-center p-5">Yearly Subscription</p>
       <hr class="w-[80%] bg-black h-1 m-auto">
       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi dolore aliquid, saepe sapiente sunt possimus explicabo commodi veritatis atque, aperiam, voluptates illum optio eius? Quo et quas tempora velit odit?</p>
     </div>
   </div>
+  <div class="h-20 "></div>
+
   <section class="border bg-[#003B95] m-5 p-5 rounded-xl">
     
-    <p class="text-center">Subscribe to our newsletter</p>
+    <p class="text-center text-white p-5">Subscribe to our newsletter</p>
     <hr class="bg-white m-auto w-[80%]">
     <form align="center" class="p-5" action="" method="post">
       <input class="border rounded-xl p-3" type="email" placeholder="Enter Your Email">
       <input class="bg-red-600 rounded-xl p-3" type="submit"  value="Subscribe">
   </section>
+  <div class="h-20 "></div>
 
 
 </main>
   <footer>
     <div class="bg-[#003B95] text-white text-center p-5">
-        <p> &copy; <span id="year">0</span> ExpenseTracker. All Rights Reserved.</p>
+        <p> &copy; <span id="year">0</span> ExpenseTracka. All Rights Reserved.</p>
     </div>
   </footer>
-  <script src="./src/index.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>

@@ -22,7 +22,7 @@
     <a class="p-3 hover:text-[#003B95] " href="../index.html">Home</a>
     <a class="p-3 hover:text-[#003B95]" href="about.html">About-Us</a>
     <a class="p-3 hover:text-[#003B95]" href="contact.html">Contact-Us</a>
-    <a class="p-3 hover:text-[#003B95]" href="myexpenses.html">My-Expenses</a>
+    <a id="expenser"  class="p-3 hover:text-[#003B95]" href="myexpenses.html">My-Expenses</a>
     
    
  </div>
@@ -35,31 +35,43 @@
 </nav>
 <hr class="w-[50%] m-auto bg-black h-1">
 <main>
+    <aside class="bg-[#003B95] side w-2/3  hidden">
+        <ul class="text-center w-1/2 text-white">
+          <li>Home</li>
+          <li>About-Us</li>
+          <li>Contact-Us</li>
+          <li><a id="expenser"  class="p-3 hover:text-[#003B95]" href="myexpenses.html">My-Expenses</a></li>
+          <li>Signout</li>
+        </ul>
+    
+      </aside>
    
     
-    <section class="m-3 grid  p-3 md:grid-cols-2 border rounded-lg md:mx-[100px] md:my-[50px] h-full gap-10" >
-        <div class=" hidden md:flex bg-white flex-col border items-center rounded-lg ">
+    <section class="m-3 grid bg-[./images/tracker.jpeg] p-3 md:grid-cols-2 border rounded-lg md:mx-[100px] md:my-[50px] h-full gap-10" >
+        <div class=" hidden md:flex bg-[../images/tracker.jpeg] flex-col border items-center rounded-lg p-10 ">
             <p>We are excited to be part of your financial journey.</p>
             <p class="text-center">
                 Together, we can achieve our financial goals and build a brighter future for ourselves and our loved ones.
             </p>
             
         </div>
-        <div class="bg-[#003B95] p-5 rounded-[10px]" >
+        <div class="bg-[#003B95] p-5  rounded-[10px]" >
             <h3 class="text-white p-2 text-center ">LOGIN</h3>
             <hr class="w-[50%] m-auto  bg-white justify-center">
-            <form class="flex flex-col" action="" method="">
+            <form class="flex flex-col" id="loginForm">
                 
-                <label class="m-1" for="mail">Email:</label>
-                <input class="m-2 p-3 rounded-sm" id="mail" type="email" autofocus placeholder="Enter Your Email">
-                <label class="m-1 font-lg" for="pass">Passsword:</label>
-                <input class="m-2 p-3 rounded-sm" id="pass" type="password" placeholder="Enter Your Password">
+                <label class=" text-white m-1" for="email">Email:</label>
+                <input class="m-2 p-3 rounded-sm" id="email" type="email" autofocus placeholder="Enter Your Email">
+                <label class=" text-white m-1 font-lg" for="password">Passsword:</label>
+                <input class="m-2 p-3 rounded-sm" id="password" type="password" placeholder="Enter Your Password">
     
     
-                <input class="m-2 bg-black hand text-white p-2 rounded-[10px]" type="button" value="SUBMIT" >
+                <input class="m-2 bg-black hand text-white p-2 rounded-[10px]" type="submit" value="SUBMIT" >
         
             </form>
-            <p>Don't have an account. Signup</p>
+            <p id="message" class="bg-white text-center"></p>
+
+            <p class="text-center text-white">Don't have an account. <a href="./register.html"> &nbsp; Signup</a></p>
         
         
         </div>
@@ -71,5 +83,6 @@
     </div>
   </footer>
   <script src="index.js"></script>
+  <script src="login.js"></script>
 </body>
 </html>

@@ -6,6 +6,15 @@ year.textContent = date;
 
 const sided= document.querySelector(".side");
 const sidebar= document.querySelector(".fa-solid");
+
 sidebar.addEventListener("click", ()=>{
     sided.classList.toggle('hidden');
+});
+
+const expenses = document.getElementById('expenser');
+
+expenses.addEventListener("click", ()=>{
+    window.location.href = './signup.html';
+    console.log(expenses);
+
 });
