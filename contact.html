@@ -12,13 +12,13 @@
 
 <nav class="bg-[rgba(255,255,255,.4)] m-2 flex flex-row scroll justify-around h-20 items-center">
     <div class="text-[#003B95] hand">
-        <a href="http://127.0.0.1:5500/index.html">
+        <a href="./index.html">
         ExpenseTracka
     </a>
     </div>
  <div class="hidden md:flex"> 
 
-    <a class="p-3 hover:text-[#003B95] " href="../index.html">Home</a>
+    <a class="p-3 hover:text-[#003B95] " href="./index.html">Home</a>
     <a class="p-3 hover:text-[#003B95]" href="about.html">About-Us</a>
     <a class="p-3 hover:text-[#003B95]" href="contact.html">Contact-Us</a>
     <a id="expenser"  class="p-3 hover:text-[#003B95]" href="myexpenses.html">My-Expenses</a>
@@ -34,7 +34,7 @@
 </nav>
 <hr class="w-[50%] m-auto bg-black h-1">
 <main>
-   <aside class="bg-[#003B95] side w-2/3  hidden">
+   <aside class="bg-[#003B95] side w-2/3 translate fixed hidden">
       <ul class="text-center w-1/2 text-white">
         <li>Home</li>
         <li>About-Us</li>
@@ -45,10 +45,10 @@
   
     </aside>
    <section class="flex flex-col p-4 ">
-      <div class="bg-[#003B95] p-5 rounded-[10px]" >
+      <div class="bg-[#003B95]  p-5 rounded-[10px]" >
          <h3 class="text-white p-2 text-center ">GET IN TOUCH WITH US</h3>
          <hr class="w-[50%] m-auto  bg-white justify-center">
-         <form class="flex flex-col" action="" method="">
+         <form class="flex flex-col" id="contactForm">
             <label class="m-1" for="nm">Name:</label>
             <input class="m-2 p-3 rounded-sm" id="nm" type="text" autofocus placeholder="Enter Your Name">
              

@@ -60,29 +60,38 @@ db.connect((err) => {
                         
                         // Create categories table
                         const categoriestable = `
-                            CREATE TABLE IF NOT EXISTS categories(
+                            CREATE TABLE IF NOT EXISTS category(
                                 category_id INT PRIMARY KEY AUTO_INCREMENT,
-                                category_name VARCHAR(100) NOT NULL
+                                category_name VARCHAR(100) NOT NULL,
+                                user_id INT NOT NULL,
+                                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                                FOREIGN KEY (user_id) REFERENCES users(id)
                             )`;
                         db.query(categoriestable, (err, result) => {
                             if (err) {
-                                console.log(`Error creating table, ${err}`);
+                                console.log(`Error creating table category, ${err}`);
                             } else {
-                                console.log(`Categories Table created successfully, ${result}`);
+                                console.log(`Category Table created successfully, ${result}`);
                                 
                                 // Create expenses table
                                 const expensestable = `
                                     CREATE TABLE IF NOT EXISTS expenses (
                                         id INT PRIMARY KEY AUTO_INCREMENT,
-                                        item VARCHAR(100) NOT NULL,
+                                        Description VARCHAR(100) NOT NULL,
                                         amount INT NOT NULL,
+                                        user_id INT NOT NULL,
                                         date DATE NOT NULL,
                                         category_id INT NOT NULL,
-                                        FOREIGN KEY (category_id) REFERENCES categories(category_id)
+                                        FOREIGN KEY (category_id) REFERENCES categories(category_id),
+                                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                                        FOREIGN KEY (user_id) REFERENCES users(id)
+
                                     )`;
                                 db.query(expensestable, (err, result) => {
                                     if (err) {
-                                        console.log(`Error creating table: ${err}`);
+                                        console.log(`Error creating expenses table: ${err}`);
                                     } else {
                                         console.log(`Expenses Table created successfully: ${result}`);
                                     }
@@ -98,6 +107,8 @@ db.connect((err) => {
                                 last_name VARCHAR(100) NOT NULL,
                                 email VARCHAR(100) UNIQUE NOT NULL,
                                 password VARCHAR(100) NOT NULL
+                                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
                             )`;
                         db.query(userstable, (err, result) => {
                             if (err) {
@@ -106,6 +117,62 @@ db.connect((err) => {
                                 console.log(`Users Table created successfully, ${result}`);
                             }
                         });
+
+                        //payment_method table
+                        const payment_method = `
+                            CREATE TABLE IF NOT EXISTS payment_method(
+                                payment_method_id INT PRIMARY KEY AUTO_INCREMENT,
+                                payment_method_name VARCHAR(100) NOT NULL,
+                                user_id INT NOT NULL,
+                                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                                FOREIGN KEY (user_id) REFERENCES users(id)
+                            )`;
+                            db.query(payment_method, (err, result) => {
+                                if (err) {
+                                    console.log(`Error creating payment_method table, ${err}`);
+                                } else {
+                                    console.log(`Payment Method Table created successfully, ${result}`);
+                                }
+                            });
+
+                            //income table
+                            const income = `create table if not exists income(
+                                income_id int primary key auto_increment,
+                                income_name varchar(100) not null,
+                                user_id int not null,
+                                created_at timestamp default current_timestamp,
+                                updated_at timestamp default current_timestamp on update current_timestamp,
+                                foreign key (user_id) references users(id)
+                            )`;
+                            db.query(income, (err, result) => {
+                                if (err) {
+                                    console.log(`Error creating income table, ${err}`);
+                                } else {
+                                    console.log(`Income Table created successfully, ${result}`);
+                                }
+                            });
+
+                            //budget table
+                            const budget = `create table if not exists budget( budget_id int primary key auto_increment,
+                                budget_name varchar(100) not null,
+                                user_id int not null,
+                                category_id int not null,
+                                amount int not null,
+                                created_at timestamp default current_timestamp,
+                                updated_at timestamp default current_timestamp on update current_timestamp,
+                                start_date date not null,
+                                end_date date not null,
+                                foreign key (user_id) references users(id),
+                                foreign key (category_id) references category(category_id)
+                            )`; 
+                            db.query(budget, (err, result) => {
+                                if (err) {
+                                    console.log(`Error creating budget table, ${err}`);
+                                } else {
+                                    console.log(`Budget Table created successfully, ${result}`);
+                                }
+                            });
                     }
                 });
             }
