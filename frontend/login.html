@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+  <meta name="description" content="ExpenseTracka is a powerful yet user-friendly tool to help you take control of your finances, track your expenses, and achieve your financial goals.">
   <link href="./output.css" rel="stylesheet">
 </head>
 <body class="bg-[#fff]">
@@ -48,8 +48,9 @@
       </aside>
    
     
-    <section class="m-3 grid bg-[./images/tracker.jpeg] p-3 md:grid-cols-2 border rounded-lg md:mx-[100px] md:my-[50px] h-full gap-10" >
-        <div class=" hidden md:flex bg-[../images/tracker.jpeg] flex-col border items-center rounded-lg p-10 ">
+    <section class="m-3 grid p-3 md:grid-cols-2 border rounded-lg md:mx-[100px] md:my-[50px] h-full gap-10" >
+        <div class=" hidden md:flex bg-[./tracker.jpeg] flex-col border items-center rounded-lg p-10 ">
+          <img src="./tracker.jpeg" alt="">
             <p>We are excited to be part of your financial journey.</p>
             <p class="text-center">
                 Together, we can achieve our financial goals and build a brighter future for ourselves and our loved ones.
@@ -59,18 +60,22 @@
         <div class="bg-[#003B95] p-5  rounded-[10px]" >
             <h3 class="text-white p-2 text-center ">LOGIN</h3>
             <hr class="w-[50%] m-auto  bg-white justify-center">
+            <p id="message" class=" bg-white text-green-700 m-5 text-center"></p>
+
             <form class="flex flex-col" id="loginForm">
                 
                 <label class=" text-white m-1" for="email">Email:</label>
                 <input class="m-2 p-3 rounded-sm" id="email" type="email" autofocus placeholder="Enter Your Email">
                 <label class=" text-white m-1 font-lg" for="password">Passsword:</label>
-                <input class="m-2 p-3 rounded-sm" id="password" type="password" placeholder="Enter Your Password">
-    
+                <div class="relative m-2 bg-white px-2 rounded flex items-center justify-around">
+
+                  <input class=" p-3 w-[100%] m-1 rounded-sm" id="password" type="password" placeholder="Enter Your Password">
+                  <i class="fas fa-eye pointer m-3" id="togglePassword"></i>
+                </div>
     
                 <input class="m-2 bg-black hand text-white p-2 rounded-[10px]" type="submit" value="SUBMIT" >
         
             </form>
-            <p id="message" class="bg-white text-center"></p>
 
             <p class="text-center mt-5 text-white">Don't have an account. <span class="hover:bg-black p-3"> <a href="./register.html"> &nbsp; Signup</a></span></p>
         

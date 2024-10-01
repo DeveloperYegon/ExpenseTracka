@@ -1,3 +1,5 @@
+
+
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
     e.preventDefault();
   
@@ -15,22 +17,25 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
         body: JSON.stringify(formData)
       });
 
-      
+      //console.log(response);
+//      form.reset();
 
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
      
       const result = await response.json();
-      setTimeout(() => {
-      }, 5000);
       document.getElementById('message').innerText = result.message;
 
-      //console.log(JSON.parse(result));
       if (result.success) {
-        window.location.href = './myexpenses.html';
-    } else {
+        setTimeout(() => {
+          window.location.href = './myexpenses.html';
+        }, 2000);
+        // localStorage.setItem('token', result.token);
+        loginForm.reset();
+      } else {
         document.getElementById('message').innerText = 'Invalid email or password.';
+
     }
   
     } catch (error) {
@@ -40,4 +45,13 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
   });
   
 
- 
+ ///password toggle
+  const togglePassword = document.getElementById('togglePassword');
+  const password = document.getElementById('password');
+  togglePassword.addEventListener('click', function (e) {
+      // toggle the type attribute
+      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+      password.setAttribute('type', type);
+      // toggle the eye / eye-slash icon
+      this.classList.toggle('fa-eye-slash');
+  });

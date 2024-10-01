@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+  <meta name="description" content="ExpenseTracka is a powerful yet user-friendly tool to help you take control of your finances, track your expenses, and achieve your financial goals.">
   <link href="./output.css" rel="stylesheet">
 </head>
 <body class="bg-[#fff]">
@@ -48,18 +48,19 @@
       <div class="bg-[#003B95]  p-5 rounded-[10px]" >
          <h3 class="text-white p-2 text-center ">GET IN TOUCH WITH US</h3>
          <hr class="w-[50%] m-auto  bg-white justify-center">
+         <p id="contact" class="p-3 m-3"></p>
          <form class="flex flex-col" id="contactForm">
-            <label class="m-1" for="nm">Name:</label>
-            <input class="m-2 p-3 rounded-sm" id="nm" type="text" autofocus placeholder="Enter Your Name">
+            <label class="m-1 text-white" for="nm">Name:</label>
+            <input class="m-2 p-3 rounded-sm" id="name" name="name" type="text" autofocus placeholder="Enter Your Name">
              
-             <label class="m-1" for="mail">Email:</label>
-             <input class="m-2 p-3 rounded-sm" id="mail" type="email"placeholder="Enter Your Email">
-             <label class="m-1 font-lg" for="message">Message:</label>
-             <textarea class="m-2 p-3 rounded-sm" name="" placeholder="Enter Your  Message" id="message"></textarea>
+             <label class="m-1 text-white" for="mail">Email:</label>
+             <input class="m-2 p-3 rounded-sm" id="email" name="email" type="email"placeholder="Enter Your Email">
+             <label class="m-1 text-white font-lg" for="message">Message:</label>
+             <textarea class="m-2 p-3 rounded-sm" name="message" placeholder="Enter Your  Message" id="message"></textarea>
             
  
  
-             <input class="m-2 bg-black hand text-white p-2 rounded-[10px]" type="button" value="SUBMIT" >
+             <input class="m-2 bg-black hand text-white p-2 rounded-[10px]" type="submit" value="SUBMIT" >
      
          </form>
      
