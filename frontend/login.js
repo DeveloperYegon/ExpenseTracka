@@ -9,16 +9,13 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     };
   
     try {
-      const response = await fetch('http://localhost:3002/api/login', {
+      const response = await fetch('http://localhost:3003/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(formData)
       });
-
-      //console.log(response);
-//      form.reset();
 
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -55,3 +52,4 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
       // toggle the eye / eye-slash icon
       this.classList.toggle('fa-eye-slash');
   });
+  

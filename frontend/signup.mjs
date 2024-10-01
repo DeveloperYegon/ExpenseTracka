@@ -1,3 +1,4 @@
+import axios from 'axios';
 
 document.getElementById('registerForm').addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -12,7 +13,7 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
     };
 
     try {
-      const response = await fetch('http://localhost:3002/api/register', {
+      const response = await fetch('http://localhost:3003/api/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -45,11 +46,10 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
 
 
   ///rest countries api
-  const countries=()=>{
-    fetch('https://restcountries.com/v3.1/all')
-    .then(response=>response.json())
-    .then(data =>console.log(data));
 
-  }
-
-  countries();
+axios.get('https://restcountries.com/v3.1/all')
+  .then(response => {
+    const countries = response.data;
+    console.log(countries);
+  })
+  .catch(error => console.error('Error fetching countries:', error));
