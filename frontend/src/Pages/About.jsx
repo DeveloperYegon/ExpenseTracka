@@ -4,7 +4,7 @@ function About() {
   return (
     <main className='h-full'>
         <hr className='bg-black h-1 w-[70%] my-4 m-auto'/>
-        <section className='m-5 border p-2 text-white rounded-xl bg-[#182B5C]'>
+        <section className='m-5 border py-10 px-5 text-white rounded-xl bg-[#182B5C]'>
             <p className='text-center text-xl '>
             ExpenseTracka was born out of the need for a better way to manage personal and business finances. 
                 </p>
@@ -23,7 +23,7 @@ function About() {
       
         </section>
 
-        <section className='m-5 border p-2 text-white rounded-xl bg-[#182B5C]'>
+        <section className='m-5 border py-10 px-5 text-white rounded-xl bg-[#182B5C]'>
          <p className='text-center text-2xl p-3'>What we offer</p>
          <hr className='bg-white w-[50%] m-auto'/>
          <ul class="text-center">
