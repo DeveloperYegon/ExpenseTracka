@@ -22,7 +22,7 @@ const Dashboard = () => {
       <div className='border mx-5 w-[100%]'>
 
       <Outlet />
-      <h1>sss</h1>
+      <h1></h1>
       </div>
 </section>
 
