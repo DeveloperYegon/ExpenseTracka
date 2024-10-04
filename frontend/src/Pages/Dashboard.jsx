@@ -1,5 +1,7 @@
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
+import hero from '../assets/expense hero.png'
+
 
 const Dashboard = () => {
   return (
@@ -14,6 +16,8 @@ const Dashboard = () => {
           <li className='bg-black my-3 text-white p-3 rounded-xl'><Link to="expenses">Expenses</Link></li>
           <li className='bg-black my-3 text-white p-3 rounded-xl'><Link to="savings">Savings</Link></li>
           <li className='bg-black my-3 text-white p-3 rounded-xl'><Link to="budget">Budget</Link></li>
+          <li className='bg-black my-3 text-white p-3 rounded-xl'><Link >Logout</Link></li>
+          
         </ul>
       </nav>
     </aside>
@@ -22,6 +26,7 @@ const Dashboard = () => {
       <div className='border mx-5 w-[100%]'>
 
       <Outlet />
+      <img className="h-[400px] w-full" src={hero} alt="" />
       <h1></h1>
       </div>
 </section>
