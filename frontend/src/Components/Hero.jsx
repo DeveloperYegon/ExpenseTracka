@@ -3,8 +3,8 @@ import hero from '../assets/expense hero.png'
 
 function Hero() {
   return (
-   <main className='m-3'>
-        <img className="h-[400px] w-full" src={hero} alt="" />
+   <main className='m-3 h-[100vh]'>
+        <img className="h-full w-full" src={hero} alt="" />
    
    </main>
   )

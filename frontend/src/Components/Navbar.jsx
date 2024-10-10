@@ -1,7 +1,10 @@
-import React from 'react'
+import React  from 'react'
 import { Link } from 'react-router-dom'
+// import Login from '../Pages/Login'
+
 
 function Navbar() {
+
   return (
     <header className='py-5 sticky top-0 bg-white'>
         <nav className='  flex flex-row justify-around items-center'>
@@ -19,13 +22,11 @@ function Navbar() {
                 <li className='p-3 text-xl hover:text-[#064195]'>Contact</li>
                 </Link>
             </ul> 
-            <div className='bg-red-500 rounded-xl p-2 text-black'> 
-                <Link className='text-xl p-2' to="/dashboard">
-                Expenses
-                </Link>
-                </div>
+            <div  className='bg-red-500 rounded-xl p-2 text-black'> 
+            <Link to="/login">Expenses</Link>
+             </div>
         </nav>
-    </header>
+       </header>
   )
 }
 

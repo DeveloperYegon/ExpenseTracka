@@ -18,15 +18,23 @@ function Contact() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('https://restcountries.com/v3.1/all')
-      .then((response) => response.json())
-      .then((data) => {
-        setCountries(data.sort((a, b) => a.name.common.localeCompare(b.name.common)));
-      });
+    const fetchCountries = async () => {
+      try {
+        const response = await axios.get('https://restcountries.com/v3.1/all');
+        const sortedCountries = response.data.sort((a, b) =>
+          a.name.common.localeCompare(b.name.common)
+        );
+        setCountries(sortedCountries);
+      } catch (error) {
+        console.error('Error fetching countries:', error);
+      }
+    };
+
+    fetchCountries();
   }, []);
 
   const onSubmit = (data) => {
-    axios.post('http://localhost:3002/requests', data)
+    axios.post('http://localhost:3003/requests', data)
       .then((response) => {
         if (response.status === 200) {
           alert("Inquiry Submitted successfully");
@@ -45,9 +53,10 @@ function Contact() {
 
   return (
     <div className='h-full pt-5 bg-[#fff]'>
+        <hr className='bg-black h-1 w-[70%] my-4 m-auto'/>
 
       <div className='md:grid gap-5 grid-cols-2 md:m-10 m-5'>
-        <div className='hidden md:flex flex-col bg-[#182B5C] text-[#fff] items-center rounded-[10px] h-full md:p-20'>
+        <div className='hidden md:flex flex-col bg-gradient-to-r from-customBlue to-customGreen text-[#fff] items-center rounded-[10px] h-full md:p-20'>
           <h2 className='flex'>Share your feedback</h2>
           <hr className='m-4 h-1' />
           <p>
@@ -56,7 +65,7 @@ function Contact() {
           <p> <strong><i>--ChatGPT--</i></strong></p>
         </div>
 
-        <div className='border p-5 bg-[#182B5C] text-[#fff] rounded-[10px] h-full'>
+        <div className='border p-5 bg-gradient-to-r from-customBlue to-customGreen text-[#fff] rounded-[10px] h-full'>
           {errorMessages && (
             <div id="authmessage" style={{ color: 'red' }}>
               {errorMessages}
@@ -149,15 +158,15 @@ function Contact() {
         </div>
       </div>
 
-      <div className='md:grid gap-5 grid-cols-2 md:m-10 m-5'>
-        <div className='bg-[#182b5c] text-[#fff] p-4 rounded-xl'>
+      <div className='md:grid gap-5 grid-cols-2 md:m-10 m-5 h-[100vh]'>
+        <div className='bg-gradient-to-r from-customBlue to-customGreen text-[#fff] p-4 rounded-xl'>
           <h3 className='text-center m-2 text-[#ED7D3B] text-xl'>Hotline Inquiry</h3>
           <hr className='m-auto w-[80%]' />
           <Link to='tel:+254-712-269-086'><p className='flex items-center gap-2 p-2 border m-5'><IoCall /> &nbsp; 0712269086</p></Link>
           <Link to='mailto:gideonyegon404@gmail.com'><p className='text-center flex items-center gap-2 p-2 border m-5'><MdEmail />gideonyegon404@gmail.com</p></Link>
         </div>
 
-        <div className='bg-[#182b5c] pt-4 my-4 rounded-xl h-full'>
+        <div className='bg-gradient-to-r from-customBlue to-customGreen pt-4  rounded-xl h-full'>
           <h3 className='text-center m-2 text-xl text-[#ED7D3B]'>Join our Community</h3>
           <hr className='w-[80%] m-auto' />
           <ul className='p-3 flex flex-col items-center md:flex-row justify-around'>
