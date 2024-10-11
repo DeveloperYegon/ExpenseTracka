@@ -30,10 +30,10 @@
             const userstable = `
             CREATE TABLE IF NOT EXISTS users(
                 id INT PRIMARY KEY AUTO_INCREMENT,
-                first_name VARCHAR(100) NOT NULL,
-                last_name VARCHAR(100) NOT NULL,
+                name VARCHAR(100) NOT NULL,
                 email VARCHAR(100) UNIQUE NOT NULL,
                 password VARCHAR(100) NOT NULL,
+                country VARCHAR(255) NOT NULL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
             )`;
@@ -82,6 +82,7 @@
             const newsletter = `create table if not exists newsletter(
             newsletter_id int primary key auto_increment,
             email varchar(100) not null,
+            terms TINYINT(4),
             created_at timestamp default current_timestamp
         )`;
         // Create categories table

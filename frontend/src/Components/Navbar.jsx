@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'
 function Navbar() {
 
   return (
-    <header className='py-5 sticky top-0 bg-white'>
-        <nav className='  flex flex-row justify-around items-center'>
+    <header className='py-5 sticky top-0 border bg-white'>
+        <nav className='  flex flex-row  justify-around items-center'>
             <Link to="/">
             <h1 className='text-xl text-[#064195]'>ExpenseTracka</h1>
             </Link>

@@ -9,7 +9,7 @@ const Modal = ({ show, onClose, children }) => {
   return (
     <div className="modal" onClick={onClose}>
       <div className="modal-content" onClick={e => e.stopPropagation()}>
-        <span className=" absolute top-5 right-10 cursor-pointer text-2xl" onClick={onClose}>&times;</span>
+        {/* <span className=" absolute top-5 right-10 cursor-pointer text-2xl" onClick={onClose}>&times;</span> */}
         <div>{children}</div>
       </div>
     </div>

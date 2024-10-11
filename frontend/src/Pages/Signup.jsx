@@ -2,19 +2,22 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Signup() {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const [countries, setCountries] = useState([]);
   const [errorMessages, setErrorMessages] = useState('');
   const navigate = useNavigate();
+  const notify = () => toast("Registration Successful!");
 
   const onSubmit = (data) => {
     axios.post('http://localhost:3003/register', data)
       .then((response) => {
         console.log(response);
         if (response.status === 201) {
-          alert("Registered successfully");
+          notify()
           setErrorMessages("");
           reset();
           setTimeout(() => {
@@ -25,7 +28,7 @@ function Signup() {
         }
       })
       .catch((err) => {
-        setErrorMessages(err.response?.data?.message || 'An unexpected error occurred');
+        setErrorMessages(err.response?.data?.message || 'User Already Exist');
         console.log(err);
       });
   }
@@ -153,6 +156,17 @@ function Signup() {
           Already have an account? <a href='/login'>Login</a>
         </p>
       </section>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000} // Automatically close after 3 seconds
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </main>
   );
 }

@@ -9,6 +9,9 @@ import { MdEmail } from "react-icons/md";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Contact() {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -16,6 +19,7 @@ function Contact() {
   const [countries, setCountries] = useState([]);
 
   const navigate = useNavigate();
+  const notify = () => toast("Messege sent Successfully!");
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -33,33 +37,37 @@ function Contact() {
     fetchCountries();
   }, []);
 
-  const onSubmit = (data) => {
-    axios.post('http://localhost:3003/requests', data)
-      .then((response) => {
+  const onSubmit = async(data) => {
+    try {
+    const response = await axios.post('http://localhost:3003/requests', data,{
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    });
+
         if (response.status === 200) {
-          alert("Inquiry Submitted successfully");
-          setTimeout(() => navigate('/'), 2000);
+          notify();
+          setTimeout(() => navigate('/dashboard'), 2000);
           reset();
           setErrorMessages('');
         } else {
           setErrorMessages("Submission failed. Please try again.");
         }
-      })
-      .catch((err) => {
+      } catch(err) {
         console.error(err);
-        setErrorMessages("Submission failed. Please try again.");
-      });
+        setErrorMessages("Server Error. Please try again.");
+      };
   };
 
   return (
-    <div className='h-full pt-5 bg-[#fff]'>
+    <main className='h-full pt-5 bg-[#fff]'>
         <hr className='bg-black h-1 w-[70%] my-4 m-auto'/>
 
       <div className='md:grid gap-5 grid-cols-2 md:m-10 m-5'>
         <div className='hidden md:flex flex-col bg-gradient-to-r from-customBlue to-customGreen text-[#fff] items-center rounded-[10px] h-full md:p-20'>
-          <h2 className='flex'>Share your feedback</h2>
+          <h2 className='flex text-3xl'>Share your feedback</h2>
           <hr className='m-4 h-1' />
-          <p>
+          <p className='text-2xl'>
             "Feedback is the breakfast of champions, the compass that guides us to improvement and the mirror that reflects our potential for greatness."
           </p>
           <p> <strong><i>--ChatGPT--</i></strong></p>
@@ -67,7 +75,7 @@ function Contact() {
 
         <div className='border p-5 bg-gradient-to-r from-customBlue to-customGreen text-[#fff] rounded-[10px] h-full'>
           {errorMessages && (
-            <div id="authmessage" style={{ color: 'red' }}>
+            <div id="authmessage" className='text-red-500 text-center'>
               {errorMessages}
             </div>
           )}
@@ -84,6 +92,7 @@ function Contact() {
                   type="text"
                   placeholder='Enter Your Name'
                   id="name"
+                  name="name"
                   {...register("name", {
                     required: "Name is required",
                   })}
@@ -100,6 +109,7 @@ function Contact() {
                   type="email"
                   placeholder='Enter Your Email'
                   id="email"
+                  name='email'
                   {...register("email", {
                     required: "Email is required",
                     pattern: {
@@ -177,7 +187,18 @@ function Contact() {
           </ul>
         </div>
       </div>
-    </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000} // Automatically close after 3 seconds
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+    </main>
   );
 }
 export default Contact;

@@ -197,31 +197,34 @@ db.connect((err) => {
 
         //newsletter subscription
         app.post("/newsletter", async (req, res) => {
-            const { email } = req.body;
+            
+            const { email,terms } = req.body;
+            const termsValue = terms === true ? 1 : 0; // If terms is true, set to 1; otherwise, set to 0
             db.query(
-                `INSERT INTO newsletter (email) VALUES (?)`,
-                [email],
+                `INSERT INTO newsletter (email,terms) VALUES (?,?)`,
+                [email,termsValue],
                 (err, result) => {
                     if (err) {
-                        res.json({ success: false, message: 'User Already subscribed!!' });
+                        console.log(err);
+                        return res.status(400).json({ success: false, message: 'User Already subscribed!!' });
                     } else {
-                        res.json({ success: true, message: 'User subscriped successfully' });
+                        return res.status(200).json({ success: true, message: 'User subscriped successfully' });
                     }
                 }
             );
         });
 
         //inserting contact form
-        app.post("/contact", async (req, res) => {
-            const { full_name, email, message } = req.body;
+        app.post("/requests", async (req, res) => {
+            const { name, email, message,country } = req.body;
             db.query(
-                `INSERT INTO contact (full_name, email, message) VALUES (?, ?, ?)`,
-                [full_name, email, message],
+                `INSERT INTO contact (full_name, email, message,country) VALUES (?, ?,?, ?)`,
+                [name, email, message,country],
                 (err, result) => {
                     if (err) {
-                        res.json({ success: false, message: 'Error sending message' });
+                        return res.status(400).json({ success: false, message: 'Error sending message' });
                     } else {
-                        res.json({ success: true, message: 'Message sent successfully' });
+                        return res.status(200).json({ success: true, message: 'Message sent successfully' });
                     }
                 }
             );

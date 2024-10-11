@@ -3,6 +3,9 @@ import axios from 'axios';
 import Modal from './Modal';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Login() {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -11,6 +14,7 @@ function Login() {
 
   const navigate = useNavigate(); // Hook to handle navigation
   const location = useLocation();
+  const notify = () => toast("Login  Successful!");
 
   // Close modal when navigation occurs
   useEffect(() => {
@@ -31,7 +35,7 @@ try {
     },
   });
     if (response.status === 200) {
-      alert("Login successful");
+      notify(); // Show toast
       reset();
       localStorage.setItem('token', response.data.token); // Store token after successful login
       setErrorMessages('');
@@ -51,10 +55,12 @@ try {
 
   return (
     location.pathname === '/login' && ( // Only show on login page
+
       <main className='modal md:m-5 m-2 p-5 h-full'>
+        <hr className='bg-black h-1 w-[70%] my-4 m-auto'/>
+
         <Modal show={showModal} onClose={() => setShowModal(false)}>
           <section className='modal-content border m-5 bg-gradient-to-r from-customBlue to-customGreen h-[90vh] rounded-xl bg-white p-10 '>
-            {/* <button className='float-right' onClick={() => setShowModal(false)}>X</button> */}
             {errorMessages && (
               <div id="authmessage" style={{ color: 'red' }}>
                 {errorMessages}
@@ -120,6 +126,17 @@ try {
             </p>
           </section>
         </Modal>
+        <ToastContainer
+        position="top-center"
+        autoClose={3000} // Automatically close after 3 seconds
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       </main>
     )
   );

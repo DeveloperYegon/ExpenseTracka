@@ -3,9 +3,12 @@ import Hero from '../Components/Hero'
 import Premium from '../Components/Premium'
 import Explainer from "../Components/Explainer"
 import Newsletter from '../Components/Newsletter'
-import Login from './Login'
+import { useEffect } from 'react'
 
 function Homepage() {
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to the top of the page
+  }, []);
   return (
     <main className=''>
         <hr className='bg-black h-1 w-[70%] my-4 m-auto'/>
